@@ -1,6 +1,9 @@
 language: node_js
 dist: xenial
 
+services:
+  - postgresql
+
 node_js:
   - "4.1"
   - "6"
