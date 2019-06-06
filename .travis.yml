@@ -8,3 +8,9 @@ node_js:
   - "12"
 env:
   - CC=clang CXX=clang++ npm_config_clang=1 PGUSER=postgres PGDATABASE=postgres
+
+addons:
+  apt:
+    packages:
+      - openssl
+      - libpq-dev
