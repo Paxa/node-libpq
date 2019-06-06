@@ -6,6 +6,9 @@ describe('async connection', function() {
     var pq = new PQ();
     assert(!pq.connected, 'should have connected set to falsy');
     pq.connect(function(err) {
+      if (err) {
+        console.error(err)
+      }
       assert(!err);
       pq.exec('SELECT NOW()');
       assert.equal(pq.connected, true, 'should have connected set to true');

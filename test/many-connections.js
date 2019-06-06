@@ -29,6 +29,9 @@ describe('connect async', function() {
     var connect = function(cb) {
       pqs.forEach(function(pq) {
         pq.connect(function(err) {
+          if (err) {
+            console.error(err)
+          }
           assert(!err);
           count++;
           pq.startReader();
