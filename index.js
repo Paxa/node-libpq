@@ -1,3 +1,6 @@
+var SegfaultHandler = require('segfault-handler');
+SegfaultHandler.registerHandler("crash.log");
+
 var PQ = module.exports = require('bindings')('addon.node').PQ;
 
 //print out the include dir
