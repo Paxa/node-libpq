@@ -18,5 +18,8 @@ env:
 addons:
   apt:
     packages:
-      - openssl
       - libpq-dev
+
+script:
+  - source ./install_openssl.sh 1.1.1
+  - npm test
