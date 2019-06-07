@@ -15,14 +15,13 @@ mkdir -p "${TMP_DIR}"
 curl https://ftp.postgresql.org/pub/source/v${POSTGRES_VERSION}/postgresql-${POSTGRES_VERSION}.tar.gz | \
   tar -C "${TMP_DIR}" -xzf -
 
-ls -lah $TMP_DIR
 cd "${TMP_DIR}/postgresql-${POSTGRES_VERSION}"
 
 if [ -d "${POSTGRES_DIR}" ]; then
   rm -rf "${POSTGRES_DIR}"
 fi
-
 mkdir -p $POSTGRES_DIR
+
 ./configure --prefix=$POSTGRES_DIR --with-openssl --without-readline
 
 cd src/interfaces/libpq; make; make install; cd -

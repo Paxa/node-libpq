@@ -24,12 +24,11 @@ cd "${TMP_DIR}/openssl-${OPENSSL_VERSION}"
 if [ -d "${OPENSSL_DIR}" ]; then
   rm -rf "${OPENSSL_DIR}"
 fi
-
 mkdir -p $OPENSSL_DIR
-./Configure \
+
+./config \
   --prefix=${OPENSSL_DIR} \
-  enable-crypto-mdebug enable-crypto-mdebug-backtrace \
-  linux-x86_64
+  enable-crypto-mdebug enable-crypto-mdebug-backtrace
 
 make -s $JOBS
 make install_sw
