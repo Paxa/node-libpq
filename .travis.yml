@@ -16,8 +16,13 @@ env:
 script:
   - ./install_openssl.sh 1.1.1
   - ./install_libpq.sh
-  - echo $PATH
+  - export PATH="./vendor/openssl-1.1.1/bin:./vendor/postgres-11.3/bin:${PATH}"
+  - export CFLAGS="-I./vendor/openssl-1.1.1/include -I./vendor/postgres-11.3/include"
+  - export LDFLAGS="-L./vendor/openssl-1.1.1/lib -L./vendor/postgres-11.3/lib"
+  - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib:./vendor/postgres-11.3/lib"
+  - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig:./vendor/postgres-11.3/lib/pkgconfig"
   - node -p process.versions
+  - node-gyp rebuild
   - readelf -d build/Release/addon.node || true
-  - readelf -d vendor/postgres-11.3/lib/libpq.5.so || true
+  - readelf -d vendor/postgres-11.3/lib/libpq.so.5 || true
   - npm test
