@@ -25,6 +25,9 @@
         '<!(node -e "require(\'nan\')")'
       ],
       'conditions' : [
+        ['OS=="linux"', {
+            'cflags': ['-fvisibility=hidden']
+        }],
         ['OS=="win"', {
           'libraries' : ['libpq.lib'],
           'msvs_settings': {
