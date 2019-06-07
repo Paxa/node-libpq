@@ -21,5 +21,5 @@ addons:
       - libpq-dev
 
 script:
-  - source ./install_openssl.sh 1.1.1
+  - node -p process.versions
   - npm test
