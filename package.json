@@ -12,7 +12,8 @@
     "url": "git://github.com/brianc/node-libpq.git"
   },
   "scripts": {
-    "test": "node-gyp rebuild && node_modules/.bin/mocha"
+    "test": "node-gyp rebuild && node_modules/.bin/mocha",
+    "rebuild": "node-gyp rebuild"
   },
   "author": "Brian M. Carlson",
   "license": "MIT",
