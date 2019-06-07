@@ -15,11 +15,8 @@ env:
   - CC=clang CXX=clang++ npm_config_clang=1 PGUSER=postgres PGDATABASE=postgres
   - PGUSER=postgres PGDATABASE=postgres PGSSLMODE=disable
 
-addons:
-  apt:
-    packages:
-      - libpq-dev
-
 script:
   - node -p process.versions
+  - node -p 'require("https").get("https://google.com/", res => { res.on("data", (d) => {console.log(d) }) })'
+  - readelf -d /usr/lib/x86_64-linux-gnu/libpq.so.5 || true
   - npm test
