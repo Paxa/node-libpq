@@ -17,7 +17,7 @@ script:
   - export PGHOST=/var/run/postgresql
   - export PGUSER=postgres
   - export PGDATABASE=postgres
-  - sudo pg_config
+  - pg_config
   - ./install_openssl.sh 1.1.1c
   - export PATH="./vendor/openssl-1.1.1/bin:${PATH}"
   - export CFLAGS="-I./vendor/openssl-1.1.1/include"
@@ -30,7 +30,7 @@ script:
   - export LDFLAGS="-L./vendor/openssl-1.1.1/lib -L./vendor/postgres-11.3/lib"
   - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib:./vendor/postgres-11.3/lib:$LD_LIBRARY_PATH"
   - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig:./vendor/postgres-11.3/lib/pkgconfig:$PKG_CONFIG_PATH"
-  - ldconfig
+  - sudo ldconfig
   - node -p process.versions
   - npm rebuild
   - ldd build/Release/addon.node || true
