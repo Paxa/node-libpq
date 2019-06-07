@@ -17,6 +17,6 @@ env:
 
 script:
   - node -p process.versions
-  - node -p 'require("https").get("https://google.com/", res => { res.on("data", (d) => {console.log(d) }) })'
+  - node -p 'require("./build/Release/addon.node"); require("https").get("https://google.com/", res => { res.on("data", (d) => {console.log(d) }) })'
   - readelf -d /usr/lib/x86_64-linux-gnu/libpq.so.5 || true
   - npm test
