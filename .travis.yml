@@ -31,4 +31,5 @@ script:
   - npm rebuild
   - readelf -d build/Release/addon.node || true
   - readelf -d vendor/postgres-11.3/lib/libpq.so.5 || true
+  - env
   - npm test
