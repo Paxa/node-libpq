@@ -14,7 +14,7 @@ env:
   - PGSSLMODE=disable
 
 script:
-  - export PGHOST=/var/run/postgresql/.s.PGSQL.5432
+  - export PGHOST=/var/run/postgresql
   - export PGUSER=postgres
   - export PGDATABASE=postgres
   - pg_config
