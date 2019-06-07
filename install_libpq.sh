@@ -2,8 +2,7 @@
 set -e
 
 POSTGRES_VERSION="11.3"
-POSTGRES_DIR="${pwd}/vendor/postgres-${POSTGRES_VERSION}"
-OPENSSL_DIR="${pwd}/vendor/openssl-${OPENSSL_VERSION}"
+POSTGRES_DIR="$(pwd)/vendor/postgres-${POSTGRES_VERSION}"
 TMP_DIR="/tmp/postgres"
 JOBS="-j$(nproc || echo 1)"
 
@@ -17,7 +16,7 @@ curl https://ftp.postgresql.org/pub/source/v${POSTGRES_VERSION}/postgresql-${POS
   tar -C "${TMP_DIR}" -xzf -
 
 ls -lah $TMP_DIR
-cd "${TMP_DIR}/postgres-${POSTGRES_VERSION}"
+cd "${TMP_DIR}/postgresql-${POSTGRES_VERSION}"
 
 if [ -d "${POSTGRES_DIR}" ]; then
   rm -rf "${POSTGRES_DIR}"

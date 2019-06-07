@@ -7,7 +7,7 @@ if [ ${#} -lt 1 ]; then
 fi
 
 OPENSSL_VERSION="${1}"
-OPENSSL_DIR="${pwd}/vendor/openssl-${OPENSSL_VERSION}"
+OPENSSL_DIR="$(pwd)/vendor/openssl-${OPENSSL_VERSION}"
 TMP_DIR="/tmp/openssl"
 JOBS="-j$(nproc || echo 1)"
 
