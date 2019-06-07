@@ -38,5 +38,3 @@ export CFLAGS="-I${OPENSSL_DIR}/include"
 export LDFLAGS="-L${OPENSSL_DIR}/lib"
 export LD_LIBRARY_PATH="${OPENSSL_DIR}/lib"
 export PKG_CONFIG_PATH="${OPENSSL_DIR}/lib/pkgconfig"
-
-ls -lah $OPENSSL_DIR

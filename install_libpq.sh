@@ -28,3 +28,9 @@ cd src/interfaces/libpq; make; make install; cd -
 cd src/bin/pg_config; make install; cd -
 cd src/backend; make generated-headers; cd -
 cd src/include; make install; cd -
+
+export PATH="${POSTGRES_DIR}/bin:${PATH}"
+export CFLAGS="-I${POSTGRES_DIR}/include"
+export LDFLAGS="-L${POSTGRES_DIR}/lib"
+export LD_LIBRARY_PATH="${POSTGRES_DIR}/lib"
+export PKG_CONFIG_PATH="${POSTGRES_DIR}/lib/pkgconfig"
