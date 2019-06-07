@@ -25,6 +25,7 @@ if [ -d "${OPENSSL_DIR}" ]; then
   rm -rf "${OPENSSL_DIR}"
 fi
 
+mkdir -p $OPENSSL_DIR
 ./Configure \
   --prefix=${OPENSSL_DIR} \
   enable-crypto-mdebug enable-crypto-mdebug-backtrace \

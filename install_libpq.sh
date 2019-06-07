@@ -16,6 +16,7 @@ mkdir -p "${TMP_DIR}"
 curl https://ftp.postgresql.org/pub/source/v${POSTGRES_VERSION}/postgresql-${POSTGRES_VERSION}.tar.gz | \
   tar -C "${TMP_DIR}" -xzf -
 
+ls -lah $TMP_DIR
 cd "${TMP_DIR}/postgres-${POSTGRES_VERSION}"
 
 if [ -d "${POSTGRES_DIR}" ]; then
