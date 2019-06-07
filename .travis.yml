@@ -10,7 +10,7 @@ node_js:
   - "11"
   - "12"
 env:
-  - CC=clang CXX=clang++ npm_config_clang=1
+  - CC=clang CXX=clang++ npm_config_clang=1 PGSSLMODE=require
   - PGSSLMODE=disable
 
 script:
