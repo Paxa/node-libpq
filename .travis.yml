@@ -16,17 +16,17 @@ env:
 script:
   - pg_config
   - ./install_openssl.sh 1.1.1
-  - export PATH="./vendor/openssl-1.1.1/bin"
+  - export PATH="./vendor/openssl-1.1.1/bin:${PATH}"
   - export CFLAGS="-I./vendor/openssl-1.1.1/include"
   - export LDFLAGS="-L./vendor/openssl-1.1.1/lib"
-  - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib"
-  - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig"
+  - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib:$LD_LIBRARY_PATH"
+  - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
   - ./install_libpq.sh
   - export PATH="./vendor/openssl-1.1.1/bin:./vendor/postgres-11.3/bin:${PATH}"
   - export CFLAGS="-I./vendor/openssl-1.1.1/include -I./vendor/postgres-11.3/include"
   - export LDFLAGS="-L./vendor/openssl-1.1.1/lib -L./vendor/postgres-11.3/lib"
-  - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib:./vendor/postgres-11.3/lib"
-  - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig:./vendor/postgres-11.3/lib/pkgconfig"
+  - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib:./vendor/postgres-11.3/lib:$LD_LIBRARY_PATH"
+  - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig:./vendor/postgres-11.3/lib/pkgconfig:$PKG_CONFIG_PATH"
   - node -p process.versions
   - readelf -d build/Release/addon.node || true
   - readelf -d vendor/postgres-11.3/lib/libpq.so.5 || true
