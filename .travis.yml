@@ -17,7 +17,7 @@ script:
   - export PGHOST=/var/run/postgresql
   - export PGUSER=postgres
   - export PGDATABASE=postgres
-  - pg_config
+  - sudo pg_config
   - ./install_openssl.sh 1.1.1c
   - export PATH="./vendor/openssl-1.1.1/bin:${PATH}"
   - export CFLAGS="-I./vendor/openssl-1.1.1/include"
