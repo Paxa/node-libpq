@@ -10,10 +10,13 @@ node_js:
   - "11"
   - "12"
 env:
-  - CC=clang CXX=clang++ npm_config_clang=1 PGUSER=postgres PGDATABASE=postgres
-  - PGUSER=postgres PGDATABASE=postgres PGSSLMODE=disable
+  - CC=clang CXX=clang++ npm_config_clang=1
+  - PGSSLMODE=disable
 
 script:
+  - export PGHOST=/var/run/postgresql/.s.PGSQL.5432
+  - export PGUSER=postgres
+  - export PGDATABASE=postgres
   - pg_config
   - ./install_openssl.sh 1.1.1
   - export PATH="./vendor/openssl-1.1.1/bin:${PATH}"
