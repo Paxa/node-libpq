@@ -5,8 +5,6 @@ services:
   - postgresql
 
 node_js:
-  - "4.1"
-  - "6"
   - "8"
   - "10"
   - "11"
@@ -16,7 +14,9 @@ env:
   - PGUSER=postgres PGDATABASE=postgres PGSSLMODE=disable
 
 script:
+  - ./install_openssl.sh 1.1.1
+  - ./install_libpq.sh
+  - export PATH=./vendor/postgres-11.3/bin/:$PATH
   - node -p process.versions
-  - node -p 'require("./build/Release/addon.node"); require("https").get("https://google.com/", res => { res.on("data", (d) => {console.log(d) }) })'
-  - readelf -d /usr/lib/x86_64-linux-gnu/libpq.so.5 || true
+  - readelf -d build/Release/addon.node || true
   - npm test
