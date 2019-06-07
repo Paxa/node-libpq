@@ -18,7 +18,7 @@ script:
   - export PGUSER=postgres
   - export PGDATABASE=postgres
   - pg_config
-  - ./install_openssl.sh 1.1.1
+  - ./install_openssl.sh 1.1.1c
   - export PATH="./vendor/openssl-1.1.1/bin:${PATH}"
   - export CFLAGS="-I./vendor/openssl-1.1.1/include"
   - export LDFLAGS="-L./vendor/openssl-1.1.1/lib"
@@ -30,9 +30,9 @@ script:
   - export LDFLAGS="-L./vendor/openssl-1.1.1/lib -L./vendor/postgres-11.3/lib"
   - export LD_LIBRARY_PATH="./vendor/openssl-1.1.1/lib:./vendor/postgres-11.3/lib:$LD_LIBRARY_PATH"
   - export PKG_CONFIG_PATH="./vendor/openssl-1.1.1/lib/pkgconfig:./vendor/postgres-11.3/lib/pkgconfig:$PKG_CONFIG_PATH"
+  - ldconfig
   - node -p process.versions
   - npm rebuild
   - ldd build/Release/addon.node || true
   - ldd vendor/postgres-11.3/lib/libpq.so.5 || true
-  - env
   - npm test
